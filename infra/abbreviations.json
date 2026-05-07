@@ -1,0 +1,9 @@
+{
+  "containerRegistryRegistries": "cr",
+  "insightsComponents": "appi-",
+  "operationalInsightsWorkspaces": "log-",
+  "webServerFarms": "plan-",
+  "webSitesAppService": "app-",
+  "aiHub": "aihub-",
+  "aiProject": "aiproj-"
+}
