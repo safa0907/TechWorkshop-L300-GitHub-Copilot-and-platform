@@ -11,16 +11,14 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         var toggle = document.getElementById('dark-mode-toggle');
-        var icon = toggle ? toggle.querySelector('i') : null;
+        var icon = document.getElementById('dark-mode-icon');
 
         function updateIcon() {
             if (!icon) return;
             if (document.body.classList.contains('dark-mode')) {
-                icon.classList.remove('bi-moon-fill');
-                icon.classList.add('bi-sun-fill');
+                icon.textContent = '🌙';
             } else {
-                icon.classList.remove('bi-sun-fill');
-                icon.classList.add('bi-moon-fill');
+                icon.textContent = '☀️';
             }
         }
 
