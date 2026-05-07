@@ -1,6 +1,42 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
+// Dark mode toggle
+(function () {
+    var darkMode = localStorage.getItem('darkMode') === 'true';
+
+    if (darkMode) {
+        document.body.classList.add('dark-mode');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var toggle = document.getElementById('dark-mode-toggle');
+        var icon = toggle ? toggle.querySelector('i') : null;
+
+        function updateIcon() {
+            if (!icon) return;
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('bi-moon-fill');
+                icon.classList.add('bi-sun-fill');
+            } else {
+                icon.classList.remove('bi-sun-fill');
+                icon.classList.add('bi-moon-fill');
+            }
+        }
+
+        updateIcon();
+
+        if (toggle) {
+            toggle.addEventListener('click', function () {
+                document.body.classList.toggle('dark-mode');
+                var isDark = document.body.classList.contains('dark-mode');
+                localStorage.setItem('darkMode', isDark);
+                updateIcon();
+            });
+        }
+    });
+})();
+
 document.addEventListener('DOMContentLoaded', function () {
     var searchInput = document.getElementById('product-search');
     var productCards = document.querySelectorAll('.product-card');
